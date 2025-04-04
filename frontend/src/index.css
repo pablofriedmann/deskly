@@ -1,68 +1,222 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --primary-color: #3B82F6; 
+  --button-bg: #1E3A8A; 
+  --button-hover-bg: #2B4DBB;
+  --background-color: #F9FAFB; 
+  --secondary-background: #FFFFFF;
+  --text-color: #333333; 
+  --text-muted: #6B7280; 
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --font-family-primary: 'Inter', sans-serif;
+  --font-family-secondary: 'Poppins', sans-serif;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+  font-family: var(--font-family-primary);
+  background-color: var(--background-color);
+  color: var(--text-color);
   min-height: 100vh;
+  padding-top: 70px; 
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--button-bg);
 }
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--button-bg);
+  color: #fff;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+button:hover {
+  background-color: var(--button-hover-bg);
+}
+
+.navbar {
+  background-color: var(--secondary-background);
+  border-bottom: 1px solid var(--text-muted);
+  padding: 15px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  width: 90px;
+  height: auto;
+}
+
+.nav-link {
+  font-family: var(--font-family-primary);
+  color: var(--text-color);
+  font-weight: 500;
+  margin-left: 20px;
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+.navbar .btn {
+  margin-left: 15px;
+}
+
+.btn-outline-primary {
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  background-color: transparent;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.hero-section {
+  background-color: var(--secondary-background);
+  padding: 80px 20px;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+h1 {
+  font-size: 48px;
+  font-family: var(--font-family-secondary);
+  color: var(--button-bg);
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 32px;
+  font-family: var(--font-family-secondary);
+  color: var(--text-color);
+}
+
+h3 {
+  font-size: 24px;
+  font-family: var(--font-family-secondary);
+  color: var(--text-color);
+}
+
+p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.lead {
+  font-size: 20px;
+  color: var(--text-muted);
+}
+
+.home-logo {
+  width: 250px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+section {
+  padding: 60px 20px;
+}
+
+section#about,
+section#contact {
+  background-color: var(--background-color);
+}
+
+section#features {
+  background-color: var(--secondary-background);
+}
+
+.feature-card {
+  background-color: var(--background-color);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.feature-card i {
+  font-size: 32px;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+footer {
+  background-color: var(--secondary-background);
+  padding: 20px 0;
+  border-top: 1px solid var(--text-muted);
+  font-size: 14px;
+}
+
+footer a {
+  color: var(--text-muted);
+  margin: 0 10px;
+}
+
+footer a:hover {
+  color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 0;
   }
-  a:hover {
-    color: #747bff;
+
+  .nav-link {
+    margin-left: 0;
+    padding: 10px 15px;
   }
-  button {
-    background-color: #f9f9f9;
+
+  .navbar .btn {
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-section {
+    padding: 40px 15px;
+    min-height: 60vh;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  section {
+    padding: 40px 15px;
+  }
+
+  .feature-card {
+    margin-bottom: 20px;
   }
 }
