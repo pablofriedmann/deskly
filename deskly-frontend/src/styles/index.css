@@ -1,0 +1,28 @@
+:root {
+  --primary-color: #3B82F6;
+  --background-light: #FAFAFA;
+  --secondary-color: #B0C4DE;
+  --text-color: #333333;
+  --accent-color: #607D8B;
+  --success-color: #4CAF50;
+
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background-light);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.1;
+}
