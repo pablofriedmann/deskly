@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function Home() {
   return (
@@ -9,28 +10,6 @@ function Home() {
       <p style={{ color: 'var(--text-color)', maxWidth: '600px', margin: '0 auto' }}>
       Deskly: A Simple ERP for Freelancers and Small Businesses
       </p>
-      <div className="mt-4">
-        <Button
-          href="/login"
-          style={{
-            backgroundColor: 'var(--primary-color)',
-            borderColor: 'var(--primary-color)',
-            marginRight: '10px',
-          }}
-        >
-          Iniciar Sesión
-        </Button>
-        <Button
-          href="/register"
-          variant="outline-primary"
-          style={{
-            color: 'var(--primary-color)',
-            borderColor: 'var(--primary-color)',
-          }}
-        >
-          Registrarse
-        </Button>
-      </div>
     </Container>
   );
 }
