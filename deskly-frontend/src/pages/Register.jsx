@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Form, Button, Image } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
@@ -18,6 +18,8 @@ const registerSchema = Yup.object().shape({
 });
 
 function Register() {
+  const navigate = useNavigate();
+
   return (
     <div
       style={{
@@ -32,9 +34,11 @@ function Register() {
       <Container className="p-4 bg-white rounded shadow-sm" style={{ maxWidth: '400px' }}>
         <div className="text-center mb-4">
           <Image src="/logo.svg" style={{ width: '120px', marginBottom: '10px' }} />
-          <h2>Create an account</h2>
-          <p><small>
-            Already registered?{' '}</small>
+          <h2 className="form-title">Create an account</h2>
+          <p>
+            <small>
+              Already registered?{' '}
+            </small>
             <Link to="/login" style={{ color: 'var(--primary-color)' }}>
               Sign in
             </Link>
@@ -50,6 +54,8 @@ function Register() {
           validationSchema={registerSchema}
           onSubmit={(values) => {
             console.log('Registration data:', values);
+            // Redirigir al Dashboard después de un registro exitoso
+            navigate('/dashboard');
           }}
         >
           {({ handleSubmit, touched, errors }) => (
