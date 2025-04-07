@@ -27,10 +27,10 @@ function LoginForm() {
         >
             <Container className="p-4 bg-white rounded shadow-sm" style={{ maxWidth: '400px' }}>
                 <div className="text-center mb-4">
-                    <Image src="/logo.svg" style={{ width: '50px', marginBottom: '10px' }} />
-                    <h2>Sign In</h2>
-                    <p>
-                        Don't have an account?{' '}
+                    <Image src="/logo.svg" style={{ width: '120px', marginBottom: '10px' }} />
+                    <h2>Welcome!</h2>
+                    <p><small>
+                        Don't have an account?{' '}</small>
                         <Link to="/register" style={{ color: 'var(--primary-color)' }}>
                             Sign up
                         </Link>
