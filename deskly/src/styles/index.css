@@ -1,9 +1,9 @@
 :root {
-  --primary-color: #3B82F6; 
-  --secondary-color: #6B7280; 
-  --text-color: #333333; 
-  --background-color: #F5F5F5;
-  --sidebar-bg: #E5E7EB; 
+  --primary-color: #3B82F6; /* Blue from README */
+  --secondary-color: #6B7280; /* Gray */
+  --text-color: #333333; /* Dark gray for text */
+  --background-color: #F5F5F5; /* Light gray background */
+  --sidebar-bg: #E5E7EB; /* Light gray for sidebar */
 }
 
 body {
@@ -63,7 +63,6 @@ body {
   transition: width 0.3s ease;
   overflow-x: hidden;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
 }
 
 .sidebar.collapsed {
@@ -124,4 +123,39 @@ body {
 .sidebar.collapsed + .main-content {
   margin-left: 60px;
   width: calc(100% - 60px);
+}
+
+/* Dashboard Styles */
+.dashboard-card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-3px);
+}
+
+.dashboard-list-item {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 10px 0;
+  transition: background-color 0.2s;
+}
+
+.dashboard-list-item:hover {
+  background-color: #f9fafb;
+}
+
+.chart-container {
+  height: 200px;
+  margin-bottom: 15px;
+}
+
+.dashboard-action-btn {
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.dashboard-action-btn:hover {
+  transform: scale(1.05);
 }
