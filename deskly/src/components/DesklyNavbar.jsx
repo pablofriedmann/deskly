@@ -3,9 +3,12 @@ import { Container, Nav, Navbar, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../store/userSlice';
+import { toggleTheme } from '../store/themeSlice';
+import { FaSun, FaMoon } from 'react-icons/fa';
 
 function DesklyNavbar() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
+  const { theme } = useSelector((state) => state.theme);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -14,8 +17,12 @@ function DesklyNavbar() {
     navigate('/login');
   };
 
+  const handleThemeToggle = () => {
+    dispatch(toggleTheme());
+  };
+
   return (
-    <Navbar bg="light" shadow-sm expand="lg">
+    <Navbar bg={theme === 'dark' ? 'dark' : 'light'} variant={theme === 'dark' ? 'dark' : 'light'} shadow-sm expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/">
           <img
@@ -37,16 +44,19 @@ function DesklyNavbar() {
             {isAuthenticated ? (
               <>
                 <span className="navbar-text me-2">Welcome, {user?.email}</span>
-                <Button variant="outline-primary" onClick={handleLogout}>
+                <Button variant="outline-primary" onClick={handleLogout} className="me-2">
                   Logout
                 </Button>
               </>
             ) : (
               <>
                 <Button as={Link} to="/login" className="login-button me-2">Login</Button>
-                <Button as={Link} to="/register" className="signup-button">Sign Up</Button>
+                <Button as={Link} to="/register" className="signup-button me-2">Sign Up</Button>
               </>
             )}
+            <Button variant="outline-secondary" onClick={handleThemeToggle}>
+              {theme === 'dark' ? <FaSun /> : <FaMoon />}
+            </Button>
           </Nav>
         </Navbar.Collapse>
       </Container>

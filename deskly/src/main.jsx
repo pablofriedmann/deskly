@@ -6,6 +6,9 @@ import store from './store';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/index.css';
 
+const initialTheme = localStorage.getItem('theme') || 'light';
+document.body.classList.toggle('dark-mode', initialTheme === 'dark');
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
