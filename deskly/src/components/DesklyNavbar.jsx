@@ -1,8 +1,19 @@
 import React from 'react';
 import { Container, Nav, Navbar, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../store/userSlice';
 
 function DesklyNavbar() {
+  const { isAuthenticated, user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate('/login');
+  };
+
   return (
     <Navbar bg="light" shadow-sm expand="lg">
       <Container>
@@ -23,8 +34,19 @@ function DesklyNavbar() {
             <Nav.Link as={Link} to="/about" className="nav-link-custom">About</Nav.Link>
           </Nav>
           <Nav>
-            <Button as={Link} to="/login" className="login-button me-2">Login</Button>
-            <Button as={Link} to="/register" className="signup-button">Sign Up</Button>
+            {isAuthenticated ? (
+              <>
+                <span className="navbar-text me-2">Welcome, {user?.email}</span>
+                <Button variant="outline-primary" onClick={handleLogout}>
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button as={Link} to="/login" className="login-button me-2">Login</Button>
+                <Button as={Link} to="/register" className="signup-button">Sign Up</Button>
+              </>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

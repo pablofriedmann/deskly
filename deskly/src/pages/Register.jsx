@@ -3,6 +3,8 @@ import { Container, Form, Button, Image } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { login } from '../store/userSlice';
 
 const registerSchema = Yup.object().shape({
   name: Yup.string().required('Name is required'),
@@ -19,6 +21,7 @@ const registerSchema = Yup.object().shape({
 
 function Register() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   return (
     <div
@@ -51,7 +54,9 @@ function Register() {
           }}
           validationSchema={registerSchema}
           onSubmit={(values) => {
-            console.log('Registration data:', values);
+            // Simulate a successful registration (replace with API call later)
+            const userData = { email: values.email };
+            dispatch(login(userData));
             navigate('/dashboard');
           }}
         >

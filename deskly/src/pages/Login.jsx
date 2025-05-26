@@ -3,6 +3,8 @@ import { Container, Form, Button, Image } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { login } from '../store/userSlice';
 
 const loginSchema = Yup.object().shape({
   email: Yup.string()
@@ -15,6 +17,7 @@ const loginSchema = Yup.object().shape({
 
 function LoginForm() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   return (
     <div
@@ -45,7 +48,9 @@ function LoginForm() {
           }}
           validationSchema={loginSchema}
           onSubmit={(values) => {
-            console.log('Login data:', values);
+            // Simulate a successful login (replace with API call later)
+            const userData = { email: values.email };
+            dispatch(login(userData));
             navigate('/dashboard');
           }}
         >
