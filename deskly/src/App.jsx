@@ -6,10 +6,7 @@ import Sidebar from './components/Sidebar';
 import LoginForm from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
-
-function Clients() {
-  return <div className="main-content"><h2>Clients</h2><p>Manage your clients here.</p></div>;
-}
+import Clients from './pages/Clients'; 
 
 function Projects() {
   return <div className="main-content"><h2>Projects</h2><p>Manage your projects here.</p></div>;
@@ -47,6 +44,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<LoginForm />} />
               <Route path="/register" element={<Register />} />
+              <Route path="*" element={<Dashboard />} />
             </Routes>
           </div>
         </div>
