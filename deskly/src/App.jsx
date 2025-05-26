@@ -1,3 +1,4 @@
+/* src/App.jsx */
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Home from './pages/Home';
@@ -6,14 +7,11 @@ import Sidebar from './components/Sidebar';
 import LoginForm from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
-import Clients from './pages/Clients'; 
+import Clients from './pages/Clients';
+import Tasks from './pages/Tasks'; 
 
 function Projects() {
   return <div className="main-content"><h2>Projects</h2><p>Manage your projects here.</p></div>;
-}
-
-function Tasks() {
-  return <div className="main-content"><h2>Tasks</h2><p>Manage your tasks here.</p></div>;
 }
 
 function Finances() {
