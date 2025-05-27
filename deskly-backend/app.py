@@ -9,7 +9,7 @@ from models import db, User, Client, Task, Project, Transaction, Invoice, TimeEn
 app = Flask(__name__)
 app.config.from_object(Config)
 
-CORS(app, resources={r"/*": {"origins": "http://localhost:5173"}})
+CORS(app, resources={r"/*": {"origins": ["http://localhost:5173", "https://improved-computing-machine-69r6x6jv5v4jhq7w-5173.app.github.dev"]}})
 
 db.init_app(app)
 jwt = JWTManager(app)
