@@ -10,10 +10,7 @@ import Clients from './pages/Clients';
 import Tasks from './pages/Tasks';
 import Projects from './pages/Projects';
 import Finances from './pages/Finances';
-
-function Resources() {
-  return <div className="main-content"><h2>Resources</h2><p>Manage your resources here.</p></div>;
-}
+import Resources from './pages/Resources'; 
 
 function App() {
   const { isAuthenticated } = useSelector((state) => state.user);
